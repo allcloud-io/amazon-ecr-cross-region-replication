@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DEPLOYMENT_ASSET_LOCATION: distributer-code-location
+
+phases:
+  install:
+    commands:
+      - mkdir -p ~/.aws/
+      - |
+        cat >> ~/.aws/config <<EOF
+        [profile default]
+        credential_source = EcsContainer
+        EOF
+
+  build:
+    commands:
+      - if [ -z $VERSION ]; then export VERSION=$CODEBUILD_SOURCE_VERSION; fi
+      - export AWS_PROFILE=default
+      - aws s3 cp $DEPLOYMENT_ASSET_LOCATION sf-deploy.py #Mandatory
+      - python sf-deploy.py # Mandatory
+
