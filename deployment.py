@@ -5,8 +5,8 @@ deployment_details = [
     {
         'product_name': 'ECR Cross Region Replication',
         'version': VERSION,
-        'portfolio': 'Premium - Utilities', # must exist in portfolio table!
-        'location': './template.yml',
+        'portfolio': 'AllCloud Portfolio - Utilities', # must exist in portfolio table!
+        'location': './template.yaml',
         'template_constraint': None,
         's3_objects': None,
     }
