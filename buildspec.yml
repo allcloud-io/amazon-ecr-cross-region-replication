@@ -17,7 +17,6 @@ phases:
   build:
     commands:
       - if [ -z $VERSION ]; then export VERSION=$CODEBUILD_SOURCE_VERSION; fi
-      - export AWS_PROFILE=default
       - aws s3 cp $DEPLOYMENT_ASSET_LOCATION sf-deploy.py #Mandatory
       - python sf-deploy.py # Mandatory
 
