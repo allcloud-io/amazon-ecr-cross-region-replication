@@ -16,7 +16,7 @@ Resources:
             - Ref: AWS::Region
             - :525087191202:AllCloudPortfolioUtilities
       Version:
-        Ref: <VERSION>
+        Ref: "<VERSION>"
       Product: ECR Cross-Region Replication
     UpdateReplacePolicy: Delete
     DeletionPolicy: Delete
