@@ -6,6 +6,20 @@ Parameters:
     Type: CommaDelimitedList
 
 Resources:
+  NotifyOnDeployment:
+    Type: AWS::CloudFormation::CustomResource
+    Properties:
+      ServiceToken:
+        Fn::Join:
+          - ""
+          - - "arn:aws:sns:"
+            - Ref: AWS::Region
+            - :525087191202:AllCloudPortfolioUtilities
+      Version:
+        Ref: <VERSION>
+      Product: ECR Cross-Region Replication
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
   CodeBuildRole:
     Type: AWS::IAM::Role
     Properties:
